@@ -225,7 +225,7 @@ class Command:
             try:
                 self.args[i_arg].description = i_description
             except KeyError as e:
-                raise RuntimeError('%s: argument not found for documentation entry.' % unicode(e))
+                raise RuntimeError('%s: argument not found for documentation entry.' % six.text_code(e))
 
 
     def _ParseFunctionArguments(self, func):
@@ -348,7 +348,7 @@ class Command:
                 try:
                     fixture, finalizer = fixtures[i_arg.name]
                 except KeyError as exception:
-                    raise InvalidFixture(unicode(exception))
+                    raise InvalidFixture(six.text_type(exception))
                 args.append(fixture())
                 finalizers.append(finalizer)
                 continue

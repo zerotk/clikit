@@ -188,7 +188,7 @@ class ConfPlugin():
                     conf.add_section(section)
                 for name, value in six.iteritems(options):
                     if not conf.has_option(section, name):
-                        conf.set(section, name, unicode(value))
+                        conf.set(section, name, six.text_type(value))
 
             return conf
 
@@ -548,7 +548,7 @@ class App(object):
                 return self.RETCODE_ERROR
 
         except InvalidCommand as exception:
-            self.console.PrintError('<red>ERROR: Unknown command %s</>' % unicode(exception))
+            self.console.PrintError('<red>ERROR: Unknown command %s</>' % six.text_type(exception))
             self.PrintHelp()
             return self.RETCODE_ERROR
 

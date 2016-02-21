@@ -12,3 +12,5 @@ keywords:
   - cli
 install_requires:
   - six
+  - colorama
+  - zerotk.easyfs

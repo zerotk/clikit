@@ -1,7 +1,8 @@
 six
+colorama
+zerotk.easyfs
 
 # Development
 coverage
 pytest
 mock
-zerotk.easyfs
