@@ -225,7 +225,7 @@ class Command:
             try:
                 self.args[i_arg].description = i_description
             except KeyError as e:
-                raise RuntimeError('%s: argument not found for documentation entry.' % six.text_code(e))
+                raise RuntimeError('%s: argument not found for documentation entry.' % six.text_type(e))
 
 
     def _ParseFunctionArguments(self, func):
