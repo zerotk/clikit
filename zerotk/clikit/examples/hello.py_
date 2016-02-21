@@ -1,0 +1,14 @@
+from clikit.app import App
+import sys
+
+app = App('hello')
+
+@app
+def greeting(console_):
+    '''
+    Greetings from clikit.
+    '''
+    console_.Print('Hello, world!')
+
+if __name__ == '__main__':
+    sys.exit(app.Main())
