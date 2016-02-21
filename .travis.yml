@@ -1,0 +1,19 @@
+language: python
+sudo: false
+python:
+  - 2.7
+  - 3.5
+script:
+  - pip install coveralls
+  - python setup.py develop
+  - coverage run setup.py test
+after_success:
+  - coveralls
+deploy:
+  provider: pypi
+  user: Kaniabi
+  on:
+    tags: true
+    repository: zerotk/clikit
+  password:
+    secure: qB6KLeX/cmU9Ba03PXflQ6Gyax1bMmOTQ/7HDGbmaA7gRyKr6q9Vi1cYHIyx/hqw+0j/gvDRfoIy7mkX7kL/5pT7bkWNxLlOKdrBOz/RreJdl1SwDDh2RBpEfPB6oY/DK0iDTgywRDvntMJN++8jJyS+wIUj/uUaZe9JFbUNr6SXswAupyTtX4OgDfHzOoMcGoirNJCn2c3bj2LQzNlXIatLjSQi518xuVYXlccixG+uP0eqs4e59Ds6cur/3dKORdjeuSExoX4FsgBWbU0K4wjtxeFx5IcM27hYjYtaZnJXC50T5ccp/+lckkYnqJcRlG5tvcnGXlrvcj+JkF9pYoB0mh3CSzexBcEC+toL43UtXLfTUzv22i5k2NSyfqGzBQkgh3LHCukyGtaTBVh/Y8wqtBZt490lxdJkUkBuKWVrEWM6nnDH46zsMQ17AsqaHB8G0O//ufSLM13okntFm9VpoJrH/mFrLZd8cmQu2LOZmo0JJlYNTBbVhEoJ58zdNY810vJM5GNna6G4uodK/60gcb5upzUJcB0QgCrskvtW9+LcoteNPvY6th5hJxOgcg9lLb8lgqxPS3lTV/QvVvT6RmjtU2gBgSfMnfSHdxzQnqi2ltyLKUpKR/GN1tWepGYXwWaVRuDlrJ/YOpn7gtZIlrfenHg13yGD27mVk04=

@@ -1,0 +1,14 @@
+name: zerotk.clikit
+module: zerotk.clikit
+namespace: zerotk
+path: zerotk/clikit
+author: Alexandre Andrade
+author_email: kaniabi@gmail.com
+development_status: 4 - Beta
+short_description: A modern Command Line Interface library.
+long_description: A modern Command Line Interface library.
+keywords:
+  - command line
+  - cli
+install_requires:
+  - six
