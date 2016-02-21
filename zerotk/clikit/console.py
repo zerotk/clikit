@@ -190,7 +190,7 @@ class Console(object):
     DEFAULT_NEWLINES = 1
     DEFAULT_INDENT = 0
 
-    def Print(self, message='', verbosity=DEFAULT_VERBOSITY, newlines=DEFAULT_NEWLINES, indent=DEFAULT_INDENT, stderr=False):
+    def Print(self, message='', verbosity=DEFAULT_VERBOSITY, newlines=DEFAULT_NEWLINES, indent_=DEFAULT_INDENT, stderr=False):
         '''
         Prints a message to the output.
 
@@ -199,7 +199,7 @@ class Console(object):
             The miminum verbosity value for this message to appear. See verbosity property.
         :param int newlines:
             The number of new-lines to append to the message.
-        :param int indent:
+        :param int indent_:
             The message indentation.
         :param bool stderr:
             By default we print to the standar output. If this flag is set we print to the standard
@@ -256,10 +256,10 @@ class Console(object):
             out = self.MARKUP_RE.sub('', message)
 
         # Support for colors on Windows
-        assert isinstance(indent, int)
+        assert isinstance(indent_, int)
         assert isinstance(newlines, int)
-        from ben10.foundation.string import Indent
-        text = Indent(out, indent=indent) + ('\n' * newlines)
+        from zerotk.clikit.text import indent
+        text = indent(out, indent_=indent_) + ('\n' * newlines)
 
         # Encode text to the target (console) encoding.
         if six.PY2 and isinstance(text, six.text_type) and (hasattr(stream, 'encoding') and stream.encoding is None):
@@ -279,21 +279,21 @@ class Console(object):
         Shortcut to Print using stderr.
         '''
         message = six.text_type(message)
-        return self.Print(message, verbosity=0, newlines=newlines, indent=indent, stderr=True)
+        return self.Print(message, verbosity=0, newlines=newlines, indent_=indent, stderr=True)
 
 
     def PrintQuiet(self, message='', newlines=1, indent=0):
         '''
         Shortcut to Print using 'quiet' verbosity.
         '''
-        return self.Print(message, verbosity=0, newlines=newlines, indent=indent)
+        return self.Print(message, verbosity=0, newlines=newlines, indent_=indent)
 
 
     def PrintVerbose(self, message='', newlines=1, indent=0):
         '''
         Shortcut to Print using 'verbose' verbosity.
         '''
-        return self.Print(message, verbosity=2, newlines=newlines, indent=indent)
+        return self.Print(message, verbosity=2, newlines=newlines, indent_=indent)
 
 
     def Ask(self, message, hidden_input=False):
@@ -329,7 +329,7 @@ class Console(object):
         * ProgressOk
         * ProgressError
         '''
-        self.Print(format_ % message, verbosity=verbosity, newlines=0, indent=indent)
+        self.Print(format_ % message, verbosity=verbosity, newlines=0, indent_=indent)
 
 
     def ProgressOk(self, message='OK', verbosity=DEFAULT_VERBOSITY, indent=0, format_='<green>%s</>'):
@@ -338,7 +338,7 @@ class Console(object):
 
         :param unicode message: Message to finish the progress. Default to "OK"
         '''
-        self.Print(format_ % message, verbosity=verbosity, indent=indent)
+        self.Print(format_ % message, verbosity=verbosity, indent_=indent)
 
 
     def ProgressError(self, message, verbosity=DEFAULT_VERBOSITY, indent=0, format_='<red>%s</>'):
@@ -347,7 +347,7 @@ class Console(object):
 
         :param unicode message: (Error) message to finish the progress.
         '''
-        self.Print(format_ % message, verbosity=verbosity, indent=indent)
+        self.Print(format_ % message, verbosity=verbosity, indent_=indent)
 
 
     def ProgressWarning(self, message, verbosity=DEFAULT_VERBOSITY, indent=0, format_='<yellow>%s</>'):
@@ -356,7 +356,7 @@ class Console(object):
 
         :param unicode message: (Warning) message to finish the progress.
         '''
-        self.Print(format_ % message, verbosity=verbosity, indent=indent)
+        self.Print(format_ % message, verbosity=verbosity, indent_=indent)
 
 
     def Item(self, message, verbosity=DEFAULT_VERBOSITY, newlines=1, indent=0, stderr=False, format_='- %s'):

@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
-from ben10.foundation.string import Dedent
-from clikit.command import Command, InvalidFixture
-from clikit.console import BufferedConsole
+from zerotk.clikit.text import dedent
+from zerotk.clikit.command import Command, InvalidFixture
+from zerotk.clikit.console import BufferedConsole
 import pytest
 
 
@@ -105,7 +105,7 @@ class Test:
             cmd.Call({'console_' : console}, {})
 
         assert cmd.description == 'Hello function.'
-        assert cmd.long_description == Dedent(
+        assert cmd.long_description == dedent(
             '''
             Hello function.
 
@@ -113,7 +113,7 @@ class Test:
             '''
         )
 
-        assert cmd.FormatHelp() == Dedent(
+        assert cmd.FormatHelp() == dedent(
             '''
             Usage:
                 Hello <filename> <*config> [--option=yes],[--no-setup],[--no-default=VALUE]
@@ -130,7 +130,7 @@ class Test:
             '''
         )
 
-        assert cmd.FormatHelp() == Dedent(
+        assert cmd.FormatHelp() == dedent(
             '''
             Usage:
                 Hello <filename> <*config> [--option=yes],[--no-setup],[--no-default=VALUE]
@@ -150,7 +150,7 @@ class Test:
         import argparse
         parser = argparse.ArgumentParser('TEST')
         cmd.ConfigureArgumentParser(parser)
-        assert parser.format_help() == Dedent(
+        assert parser.format_help() == dedent(
             '''
             usage: TEST [-h] [--option OPTION] [--no-setup] [--no-default NO_DEFAULT]
                         filename [config [config ...]]

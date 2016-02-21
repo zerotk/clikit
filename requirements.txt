@@ -3,3 +3,6 @@ six
 # Development
 coverage
 pytest
+mock
+contextlib
+zerotk.easyfs

@@ -1,5 +1,5 @@
 from __future__ import unicode_literals
-from ben10.foundation.string import Dedent
+from zerotk.clikit.text import dedent
 from .command import Command
 from six.moves.configparser import SafeConfigParser
 import argparse
@@ -171,7 +171,7 @@ class ConfPlugin():
             '''
             Returns the full configuration file expanding users (~) and names (%(name)s).
             '''
-            from ben10.filesystem import ExpandUser
+            from zerotk.easyfs import ExpandUser
             return ExpandUser(self.conf_filename % {'name' : self.__name})
 
 
@@ -632,7 +632,7 @@ class App(object):
 
         Example:
             app = App('ii')
-            app = TestScript(Dedent(
+            app = TestScript(dedent(
                 """
                 > ii list
                 - alpha
@@ -654,7 +654,7 @@ class App(object):
             obtained_string = obtained.rstrip('\n') + '\n'
             expected_string = expected_output.rstrip('\n') + '\n'
             assert obtained_string == expected_string
-            assert expected_retcode == obtained_retcode, Dedent(
+            assert expected_retcode == obtained_retcode, dedent(
                 '''
                 >>> %(cmd)s
                 Command finished with return code "%(obtained_retcode)s", was expecting "%(expected_retcode)s"
@@ -688,7 +688,7 @@ class App(object):
         cmd = None
         expected_output = ''
         expected_retcode = 0
-        script = Dedent(script)
+        script = dedent(script)
         for i_line in script.splitlines():
             if i_line.startswith('###'):
                 continue
@@ -726,7 +726,7 @@ class App(object):
             Returns the command return code and output.
         '''
         from .console import BufferedConsole
-        from ben10.foundation.pushpop import PushPopAttr
+        from zerotk.clikit.pushpop import PushPopAttr
         import shlex
 
         apps = {

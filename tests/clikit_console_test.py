@@ -1,6 +1,6 @@
 from __future__ import unicode_literals
 from StringIO import StringIO
-from clikit.console import BufferedConsole, Console
+from zerotk.clikit.console import BufferedConsole, Console
 import mock
 import os
 import sys
@@ -44,18 +44,18 @@ class Test:
 
         oss = StringIO()
         console = Console(verbosity=1, stdout=oss)
-        console.Print('Alpha.n\nAlpha.n2', indent=1)
+        console.Print('Alpha.n\nAlpha.n2', indent_=1)
         assert oss.getvalue() == '''    Alpha.n\n    Alpha.n2\n'''
 
         # Behavior should be the same as Indent function
-        from ben10.foundation.string import Indent
-        assert Indent('''Alpha.n\nAlpha.n2\n''') == oss.getvalue()
+        from zerotk.clikit.text import indent
+        assert indent('''Alpha.n\nAlpha.n2\n''') == oss.getvalue()
 
         oss = StringIO()
         console = Console(verbosity=1, stdout=oss)
-        console.Print('Alpha.n\n    Alpha.n2', indent=1)
+        console.Print('Alpha.n\n    Alpha.n2', indent_=1)
         assert oss.getvalue() == '''    Alpha.n\n        Alpha.n2\n'''
-        assert Indent('''Alpha.n\n    Alpha.n2\n''') == oss.getvalue()
+        assert indent('''Alpha.n\n    Alpha.n2\n''') == oss.getvalue()
 
 
         # Test color control

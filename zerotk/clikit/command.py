@@ -304,17 +304,17 @@ class Command:
             ','.join(self.names),
             ' '.join(['<%s>' % i for i in positionals]),
             ','.join(['[--%s]' % i for i in optionals]),
-        ), indent=1, newlines=2)
+        ), indent_=1, newlines=2)
         console.Print('Parameters:')
         for i in positionals:
-            console.Print('<teal>%s</>   %s' % (i.argparse_name, i.description), indent=1)
+            console.Print('<teal>%s</>   %s' % (i.argparse_name, i.description), indent_=1)
         console.Print()
         console.Print('Options:')
         for i in optionals:
             if any(map(lambda x: i.default is x, (Command.Arg.NO_DEFAULT, None, True, False))):
-                console.Print('--%s   %s' % (i.argparse_name, i.description), indent=1)
+                console.Print('--%s   %s' % (i.argparse_name, i.description), indent_=1)
             else:
-                console.Print('--%s   %s [default: %s]' % (i.argparse_name, i.description, i.default), indent=1)
+                console.Print('--%s   %s [default: %s]' % (i.argparse_name, i.description, i.default), indent_=1)
         return console.GetOutput()
 
 

@@ -1,12 +1,14 @@
 from __future__ import unicode_literals
-from ben10.foundation.string import Dedent
-from clikit.app import App, UnknownApp
-from clikit.console import BufferedConsole, Console
-from mock import Mock
+
 import inspect
-import pytest
 import sys
 
+import pytest
+from mock import Mock
+
+from zerotk.clikit.app import App, UnknownApp
+from zerotk.clikit.console import BufferedConsole, Console
+from zerotk.clikit.text import dedent
 
 
 #===================================================================================================
@@ -63,7 +65,7 @@ class Test:
         app = App('test', color=False, buffered_console=True)
         app.Add(TestCmd)
 
-        self._TestMain(app, '', Dedent(
+        self._TestMain(app, '', dedent(
             '''
 
             Usage:
@@ -76,7 +78,7 @@ class Test:
             )
         )
 
-        self._TestMain(app, '--help', Dedent(
+        self._TestMain(app, '--help', dedent(
             '''
 
             Usage:
@@ -92,7 +94,7 @@ class Test:
         self._TestMain(
             app,
             'test-cmd --help',
-            Dedent(
+            dedent(
                 '''
                     This is a test.
 
@@ -115,7 +117,7 @@ class Test:
         self._TestMain(
             app,
             'test-cmd',
-            Dedent(
+            dedent(
                 '''
                     ERROR: Too few arguments.
 
@@ -187,7 +189,7 @@ class Test:
         self._TestMain(app, 'four', 'Hello from case 4 (AKA: four)\n')
 
         # Tests output when an invalid command is requested
-        self._TestMain(app, 'INVALID', Dedent(
+        self._TestMain(app, 'INVALID', dedent(
             '''
             ERROR: Unknown command u'INVALID'
 
@@ -388,7 +390,7 @@ class Test:
         app = App('test', color=False, buffered_console=True)
         app.Add(Command)
 
-        app.TestScript(Dedent(
+        app.TestScript(dedent(
             '''
             >test command --foo --bar [retcode=1]
             ERROR: Unrecognized arguments: --foo --bar
@@ -448,7 +450,7 @@ class Test:
         self._TestMain(
             app,
             '',
-            Dedent(
+            dedent(
                 '''
 
                     Usage:
@@ -472,8 +474,6 @@ class Test:
             E       ArgumentError: argument 2: <type 'exceptions.TypeError'>: expected LP_CONSOLE_SCREEN_BUFFER_INFO
                                    instance instead of pointer to CONSOLE_SCREEN_BUFFER_INFO
         '''
-        import colorama
-
 
     def testFixture1(self):
 
@@ -589,7 +589,7 @@ class Test:
         self._TestMain(
             app,
             'command',
-            Dedent(
+            dedent(
                 '''
                     The names are: alpha and bravo.
 
