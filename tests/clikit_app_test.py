@@ -5,6 +5,7 @@ import sys
 
 import pytest
 from mock import Mock
+import six
 
 from zerotk.clikit.app import App, UnknownApp
 from zerotk.clikit.console import BufferedConsole, Console
@@ -221,7 +222,7 @@ class Test:
                     'value' : 'ALPHA',
                 }
             },
-            conf_filename=unicode(conf_filename),
+            conf_filename=six.text_type(conf_filename),
             buffered_console=True
         )
 
@@ -257,7 +258,7 @@ class Test:
                     'value' : 'ALPHA',
                 }
             },
-            conf_filename=unicode(conf_filename),
+            conf_filename=six.text_type(conf_filename),
             buffered_console=True
         )
 
@@ -431,7 +432,7 @@ class Test:
         with pytest.raises(RuntimeError) as e:
             app.Add(Command)
 
-        assert unicode(e.value) == \
+        assert six.text_type(e.value) == \
             'Clikit commands are not allowed to have boolean parameters that default to True.'
 
 

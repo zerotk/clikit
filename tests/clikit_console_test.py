@@ -1,5 +1,5 @@
 from __future__ import unicode_literals
-from StringIO import StringIO
+from six import StringIO
 from zerotk.clikit.console import BufferedConsole, Console
 import mock
 import os
