@@ -4,5 +4,4 @@ six
 coverage
 pytest
 mock
-contextlib
 zerotk.easyfs
