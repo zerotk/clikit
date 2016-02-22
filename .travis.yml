@@ -2,7 +2,6 @@ language: python
 sudo: false
 python:
   - 2.7
-  - 3.5
 script:
   - pip install coveralls
   - python setup.py develop
@@ -16,4 +15,4 @@ deploy:
     tags: true
     repository: zerotk/clikit
   password:
-    secure: qB6KLeX/cmU9Ba03PXflQ6Gyax1bMmOTQ/7HDGbmaA7gRyKr6q9Vi1cYHIyx/hqw+0j/gvDRfoIy7mkX7kL/5pT7bkWNxLlOKdrBOz/RreJdl1SwDDh2RBpEfPB6oY/DK0iDTgywRDvntMJN++8jJyS+wIUj/uUaZe9JFbUNr6SXswAupyTtX4OgDfHzOoMcGoirNJCn2c3bj2LQzNlXIatLjSQi518xuVYXlccixG+uP0eqs4e59Ds6cur/3dKORdjeuSExoX4FsgBWbU0K4wjtxeFx5IcM27hYjYtaZnJXC50T5ccp/+lckkYnqJcRlG5tvcnGXlrvcj+JkF9pYoB0mh3CSzexBcEC+toL43UtXLfTUzv22i5k2NSyfqGzBQkgh3LHCukyGtaTBVh/Y8wqtBZt490lxdJkUkBuKWVrEWM6nnDH46zsMQ17AsqaHB8G0O//ufSLM13okntFm9VpoJrH/mFrLZd8cmQu2LOZmo0JJlYNTBbVhEoJ58zdNY810vJM5GNna6G4uodK/60gcb5upzUJcB0QgCrskvtW9+LcoteNPvY6th5hJxOgcg9lLb8lgqxPS3lTV/QvVvT6RmjtU2gBgSfMnfSHdxzQnqi2ltyLKUpKR/GN1tWepGYXwWaVRuDlrJ/YOpn7gtZIlrfenHg13yGD27mVk04=
+    secure: IuoPa7GxyjoNJlRU+8p0vT90sb5D2m3LitBtHPlwKXz77bI5lndSJokX3yNGG7sPL8gBTKxxYhgpIPd3Pv7pSSXwI5N/r+jDivHvMEOmo54j8Df68I4WynZfGHdFEX/FH16MUsLstvtRQmznijVsXi5PCexQIJEJk8/h3E+wkBu8qSVEdJnkgCxAee5LaXZPdRtea7aQ/dDDimCoCiVAH8/SEizAuDjTCV+4MgwgXXxTAuyogCua9lCNKD+ge/YUMOtgzEMO5RaizMBoxH7rMRHD6sxSZZDl1zSJ8lRgSXevx7SWv3+/1ijELh94Cg7c9sfDOeZ/SAFb7k21/1HHCs1PLSjYrRV+LUe0DcECwgP3mYRw6bX+0/o5l//t+RYD+lU9Qzzswy7EM3wbTb9kWj35ui/GLlDJ5Yw6a8rP1bG+iMNn4NN3tMQvbe56dJJ/lWGrUcftGnh5nNDhhsaI4T/Uv7f1lNjUI1tqlXyT2CkMmEIQHmfgcQbm9b1smC4K6oT6s1MEM4LBRPCsLNKnwWqJnNbmfqZ+uYN5ZIAIjmWay+M93+qKrmtwMjICVjDOjuIll5ZCzErLViabgaJ5BymbPuBTfiZbMSQLyAqM++Hf7zFBq3QM7dCn9jaS3CB74xHwqaAt7xPpZNjVdN/vxWW+236Xqxglf8fVFoZhtv0=
