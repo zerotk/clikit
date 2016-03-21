@@ -3,6 +3,7 @@ colorama
 zerotk.easyfs
 
 # Development
-coverage
 pytest
+coverage
 mock
+

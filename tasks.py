@@ -6,7 +6,8 @@ def release():
     """
     Publishes the project on PyPI.
 
-    We have automatic publishing enabled on TRAVIS build, so this is not necessary... but I'll keep here for reference.
+    We have automatic publishing enabled on TRAVIS build, so this is not
+    necessary... but I'll keep here for reference.
     """
     run("python setup.py sdist upload")
 

@@ -14,3 +14,7 @@ install_requires:
   - six
   - colorama
   - zerotk.easyfs
+tests_require:
+  - pytest
+  - coverage
+  - mock

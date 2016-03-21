@@ -43,7 +43,7 @@ setup(
 
     keywords=['command line', 'cli'],
 
-    install_requires=['six'],
+    install_requires=['six', 'colorama', 'zerotk.easyfs'],
     setup_requires=['setuptools_scm', 'pytest-runner'],
-    tests_require=['coverage', 'pytest'],
+    tests_require=['pytest', 'coverage', 'mock'],
 )
