@@ -5,7 +5,7 @@ import sys
 
 import six
 from six.moves.configparser import SafeConfigParser
-from zerotk.clikit.text import dedent
+from zerotk.text import dedent
 
 from .command import Command
 

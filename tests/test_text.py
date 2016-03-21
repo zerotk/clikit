@@ -161,7 +161,7 @@ def test_indent():
 
     assert indent('alpha') == '    alpha'
 
-    assert indent('alpha', indent=2) == '        alpha'
+    assert indent('alpha', indent_=2) == '        alpha'
     assert indent('alpha', indentation='...') == '...alpha'
 
     # If the original text ended with '\n' the resulting text must also end with '\n'
