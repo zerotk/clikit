@@ -1,10 +1,12 @@
 from __future__ import unicode_literals
-from six import StringIO
-from zerotk.clikit.console import BufferedConsole, Console
-import mock
+
 import os
 import sys
 
+import mock
+from six import StringIO
+
+from zerotk.clikit.console import BufferedConsole, Console
 
 
 #===================================================================================================
@@ -48,7 +50,7 @@ class Test:
         assert oss.getvalue() == '''    Alpha.n\n    Alpha.n2\n'''
 
         # Behavior should be the same as Indent function
-        from zerotk.clikit.text import indent
+        from zerotk.text import indent
         assert indent('''Alpha.n\nAlpha.n2\n''') == oss.getvalue()
 
         oss = StringIO()

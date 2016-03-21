@@ -4,12 +4,12 @@ import inspect
 import sys
 
 import pytest
-from mock import Mock
 import six
+from mock import Mock
 
 from zerotk.clikit.app import App, UnknownApp
 from zerotk.clikit.console import BufferedConsole, Console
-from zerotk.clikit.text import dedent
+from zerotk.text import dedent
 
 
 #===================================================================================================

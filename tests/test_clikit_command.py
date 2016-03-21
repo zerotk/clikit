@@ -1,9 +1,10 @@
 from __future__ import unicode_literals
-from zerotk.clikit.text import dedent
-from zerotk.clikit.command import Command, InvalidFixture
-from zerotk.clikit.console import BufferedConsole
+
 import pytest
 
+from zerotk.clikit.command import Command, InvalidFixture
+from zerotk.clikit.console import BufferedConsole
+from zerotk.text import dedent
 
 
 #===================================================================================================

@@ -1,13 +1,13 @@
 from __future__ import unicode_literals
-from zerotk.clikit.text import dedent
-from .command import Command
-from six.moves.configparser import SafeConfigParser
-import argparse
-import os
-import sys
-import types
-import six
 
+import argparse
+import sys
+
+import six
+from six.moves.configparser import SafeConfigParser
+from zerotk.clikit.text import dedent
+
+from .command import Command
 
 
 #===================================================================================================
@@ -726,7 +726,7 @@ class App(object):
             Returns the command return code and output.
         '''
         from .console import BufferedConsole
-        from zerotk.clikit.pushpop import PushPopAttr
+        from zerotk.pushpop import PushPopAttr
         import shlex
 
         apps = {

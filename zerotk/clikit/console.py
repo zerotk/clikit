@@ -258,7 +258,7 @@ class Console(object):
         # Support for colors on Windows
         assert isinstance(indent_, int)
         assert isinstance(newlines, int)
-        from zerotk.clikit.text import indent
+        from zerotk.text import indent
         text = indent(out, indent_=indent_) + ('\n' * newlines)
 
         # Encode text to the target (console) encoding.
