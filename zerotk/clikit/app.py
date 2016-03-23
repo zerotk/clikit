@@ -626,7 +626,7 @@ class App(object):
         return retcode, console.GetOutput()
 
 
-    def TestScript(self, script):
+    def TestScript(self, script, input_prefix='>'):
         '''
         Executes a test script, containing command calls (prefixed by ">") and expected results.
 
@@ -692,11 +692,11 @@ class App(object):
         for i_line in script.splitlines():
             if i_line.startswith('###'):
                 continue
-            elif i_line.startswith('>'):
+            elif i_line.startswith(input_prefix):
                 if cmd is not None:
                     Execute(cmd, expected_output, expected_retcode)
                 expected_output = ''
-                cmd = i_line[1:]
+                cmd = i_line[len(input_prefix):]
                 cmd, expected_retcode = GetExpectedReturnCode(cmd)
             else:
                 expected_output += i_line + '\n'
